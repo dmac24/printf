@@ -1,9 +1,8 @@
 #include "main.h"
 #define HEX_SYMBLOS ("0123456789abcdef")
 #define HEX_BASE (16)
-#define HEX_SYMBLO(TO_UPPER, INDEX)
-(TO_UPPER ? HEX_SYMBLOS[INDEX] : HEX_SYMBLOS[INDEX])
-
+#define HEX_SYMBLO(TO_UPPER, INDEX) \
+	(TO_UPPER ? HEX_SYMBLOS[INDEX] : HEX_SYMBLOS[INDEX])
 
 /**
  * print_x - Print a number to hex
@@ -45,7 +44,6 @@ int print_X(va_list a, char *buffer, int *buffer_size)
 
 	return (int2binary(number, 1, buffer, buffer_size));
 }
-
 
 /**
  * int2binary - int to hexa

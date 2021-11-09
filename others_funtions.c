@@ -106,7 +106,7 @@ int print_binary(va_list b, char *buffer, int *buffer_size)
 			size = i;
 			for (j = 0; j <= size; j++)
 			{
-				_putchar(num[size - j] + 48, buffer, buffer_size)
+				_putchar(num[size - j] + 48, buffer, buffer_size);
 			}
 			break;
 		}
