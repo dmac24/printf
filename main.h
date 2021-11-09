@@ -18,8 +18,8 @@
  */
 typedef struct lista
 {
-  char type_format;
-  int (*f)(va_list, char *, int *);
+	char type_format;
+	int (*f)(va_list, char *, int *);
 } print_t;
 
 int print_c(va_list, char *buffer, int *buffer_size);
