@@ -9,9 +9,9 @@
  */
 int print_c(va_list a, char *buffer, int *buffer_size)
 {
-  if (a == NULL)
-    return (-1);
+	if (a == NULL)
+		return (-1);
 
-  _putchar(va_arg(a, int), buffer, buffer_size);
-  return (1);
+	_putchar(va_arg(a, int), buffer, buffer_size);
+	return (1);
 }

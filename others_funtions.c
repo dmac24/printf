@@ -10,38 +10,40 @@
  */
 int rot13(va_list lista, char *buffer, int *buffer_size)
 {
-  int i;
-  int j;
-  char let[52] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-  char cod[52] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
-  char *s;
+	int i;
+	int j;
+	char let[52] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char cod[52] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	char *s;
 
-  i = 0;
-  j = 0;
+	i = 0;
+	j = 0;
 
-  if (!lista)
-    return (0);
+	if (!lista)
+		return (0);
 
-  s = va_arg(lista, char *);
-  while (s[i] != '\0')
-    {
-      if (!_is_alpha(s[i]))
+	s = va_arg(lista, char *);
+	while (s[i] != '\0')
+
 	{
-	  _putchar(s[i], buffer, buffer_size);
-	  i++;
-	  continue;
+		if (!_is_alpha(s[i]))
+		{
+			_putchar(s[i], buffer, buffer_size);
+			i++;
+			continue;
+		}
+
+		for (j = 0; let[j] != '\0'; j++)
+		{
+			if (s[i] == let[j])
+			{
+				_putchar(cod[j], buffer, buffer_size);
+				break;
+			}
+		}
+		i++;
 	}
-      for (j = 0; let[j] != '\0'; j++)
-	{
-	  if (s[i] == let[j])
-	    {
-	      _putchar(cod[j], buffer, buffer_size);
-	      break;
-	    }
-	}
-      i++;
-    }
-  return (i);
+	return (i);
 }
 
 /**
@@ -54,28 +56,29 @@ int rot13(va_list lista, char *buffer, int *buffer_size)
  */
 int rev_string(va_list lista, char *buffer, int *buffer_size)
 {
-  int i, len;
-  char *s;
+	int i, len;
+	char *s;
 
-  i = 0;
-  len = 0;
+	i = 0;
+	len = 0;
 
-  if (!lista)
-    return (0);
-  s = va_arg(lista, char *);
+	if (!lista)
+		return (0);
+	s = va_arg(lista, char *);
 
-  if (!s)
-    return (0);
-  while (s[i] != '\0')
-    {
-      len++;
-      i++;
-    }
-  for (i = len - 1; i >= 0; i--)
-    {
-      _putchar(s[i], buffer, buffer_size);
-    }
-  return (len);
+	if (!s)
+		return (0);
+	while (s[i] != '\0')
+	{
+		len++;
+		i++;
+	}
+
+	for (i = len - 1; i >= 0; i--)
+	{
+		_putchar(s[i], buffer, buffer_size);
+	}
+	return (len);
 }
 
 /**
@@ -88,26 +91,25 @@ int rev_string(va_list lista, char *buffer, int *buffer_size)
  */
 int print_binary(va_list b, char *buffer, int *buffer_size)
 {
-  unsigned int decimal, size, i, j, residuo, cociente, num[1024];
+	unsigned int decimal, size, i, j, residuo, cociente, num[1024];
 
-  decimal = va_arg(b, unsigned int);
+	decimal = va_arg(b, unsigned int);
 
-  for (i = 0; i <= decimal || i != 0; i++)
-    {
-      cociente = decimal / 2;
-      residuo = decimal % 2;
-      decimal = cociente;
-      num[i] = residuo;
-      if (decimal == 0)
+	for (i = 0; i <= decimal || i != 0; i++)
 	{
-	  size = i;
-
-	  for (j = 0; j <= size; j++)
-	    {
-	      _putchar(num[size - j] + 48, buffer, buffer_size);
-	    }
-	  break;
+		cociente = decimal / 2;
+		residuo = decimal % 2;
+		decimal = cociente;
+		num[i] = residuo;
+		if (decimal == 0)
+		{
+			size = i;
+			for (j = 0; j <= size; j++)
+			{
+				_putchar(num[size - j] + 48, buffer, buffer_size)
+			}
+			break;
+		}
 	}
-    }
-  return (j);
+	return (j);
 }

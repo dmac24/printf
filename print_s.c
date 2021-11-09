@@ -9,21 +9,23 @@
  */
 int print_s(va_list a, char *buffer, int *buffer_size)
 {
-  int i;
-  char *string;
+	int i;
+	char *string;
 
-  if (a == NULL)
-    return (-1);
+	if (a == NULL)
+		return (-1);
 
-  string = va_arg(a, char *);
+	string = va_arg(a, char *);
+	if (string == NULL)
 
-  if (string == NULL)
-    {
-      string = "(null)";
-    }
-  for (i = 0; string[i] != '\0'; i++)
-    {
-      _putchar(string[i], buffer, buffer_size);
-    }
-  return (i);
+	{
+		string = "(null)";
+	}
+
+	for (i = 0; string[i] != '\0'; i++)
+	{
+		_putchar(string[i], buffer, buffer_size);
+	}
+
+	return (i);
 }

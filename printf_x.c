@@ -5,8 +5,6 @@
 (TO_UPPER ? HEX_SYMBLOS[INDEX] : HEX_SYMBLOS[INDEX])
 
 
-
-
 /**
  * print_x - Print a number to hex
  * @a: variadic argumants
@@ -14,16 +12,17 @@
  * @buffer_size: actual items in the buffer
  * Return: lengh of expansion
  */
+
 int print_x(va_list a, char *buffer, int *buffer_size)
+
 {
-  int number = 0;
+	int number = 0;
 
-  if (a == NULL)
-    return (-1);
+	if (a == NULL)
+		return (-1);
 
-  number = va_arg(a, int);
-
-  return (int2binary(number, 0, buffer, buffer_size));
+	number = va_arg(a, int);
+	return (int2binary(number, 0, buffer, buffer_size));
 }
 
 /**
@@ -33,16 +32,18 @@ int print_x(va_list a, char *buffer, int *buffer_size)
  * @buffer_size: actual items in the buffer
  * Return: lengh of expansion
  */
+
 int print_X(va_list a, char *buffer, int *buffer_size)
+
 {
-  int number = 0;
+	int number = 0;
 
-  if (a == NULL)
-    return (-1);
+	if (a == NULL)
+		return (-1);
 
-  number = va_arg(a, int);
+	number = va_arg(a, int);
 
-  return (int2binary(number, 1, buffer, buffer_size));
+	return (int2binary(number, 1, buffer, buffer_size));
 }
 
 
@@ -56,16 +57,18 @@ int print_X(va_list a, char *buffer, int *buffer_size)
  */
 int int2binary(int number, int toUpper, char *buffer, int *buffer_size)
 {
-  int nextNumber = number / HEX_BASE;
-  int hexNumber = 0;
-  int counter = 1;
-  
-  hexNumber = number % HEX_BASE;
-  if (nextNumber == 0) {
-    _putchar(HEX_SYMBLO(toUpper, hexNumber), buffer, buffer_size);
-    return (counter);
-  }
-  counter = int2binary(nextNumber, toUpper, buffer, buffer_size);
-  _putchar(HEX_SYMBLO(toUpper, hexNumber), buffer, buffer_size);
-  return (1 + counter);
+	int nextNumber = number / HEX_BASE;
+	int hexNumber = 0;
+	int counter = 1;
+
+	hexNumber = number % HEX_BASE;
+	if (nextNumber == 0)
+	{
+		_putchar(HEX_SYMBLO(toUpper, hexNumber), buffer, buffer_size);
+		return (counter);
+	}
+
+	counter = int2binary(nextNumber, toUpper, buffer, buffer_size);
+	_putchar(HEX_SYMBLO(toUpper, hexNumber), buffer, buffer_size);
+	return (1 + counter);
 }

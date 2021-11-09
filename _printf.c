@@ -8,41 +8,38 @@
 
 int _printf(const char *format, ...)
 {
-  va_list lista;
-  int i, count = 0, size = 0;
-  char *buffer = NULL;
+	va_list lista;
+	int i, count = 0, size = 0;
+	char *buffer = NULL;
 
-  if (format == NULL || (format[0] == PERCENT && format[1] == '\0'))
-      return (-1);
-
-  buffer = malloc(BUFFER_SIZE);
-
-  if (!buffer)
-    return (-1);
-
-  va_start(lista, format);
-
-  for (i = 0; format != NULL && format[i] != '\0'; i++)
-    {
-      if (format[i] == PERCENT && format[i + 1] == PERCENT)
+	if (format == NULL || (format[0] == PERCENT && format[1] == '\0'))
+		return (-1);
+	buffer = malloc(BUFFER_SIZE);
+	if (!buffer)
+		return (-1);
+	va_start(lista, format);
+	for (i = 0; format != NULL && format[i] != '\0'; i++)
 	{
-	  _putchar(format[i], buffer, &size);
-	  i++;
-	  count++;
-	  continue;
-	}
-      if (format[i] == PERCENT && format[i + 1] == ' ') /*caso spacios*/
-	case_spaces(&i, format, &count, lista, buffer, &size);
+		if (format[i] == PERCENT && format[i + 1] == PERCENT)
+		{
+			_putchar(format[i], buffer, &size);
+			i++;
+			count++;
+			continue;
+		}
+		if (format[i] == PERCENT && format[i + 1] == ' ')/*caso spacios*/
+			case_spaces(&i, format, &count, lista, buffer, &size);
 
-      else if (format_is_correct(format[i], format[i + 1]))
-	get_function(format[i + 1], &i, &count, lista, buffer, &size);
-      else
-	{
-	  _putchar(format[i], buffer, &size);
-	  count++;
+		else if (format_is_correct(format[i], format[i + 1]))
+
+		get_function(format[i + 1], &i, &count, lista, buffer, &size);
+		else
+		{
+			_putchar(format[i], buffer, &size);
+			count++;
+		}
 	}
-    }
-  write(1, buffer, size);
-  free(buffer);
-  return (count);
+	write(1, buffer, size);
+	free(buffer);
+	return (count);
 }
