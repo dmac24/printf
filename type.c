@@ -17,6 +17,8 @@ int get_function(
 {
   int j = 0, result = 0;
   print_t print_type[] = {
+			  {'x', print_x},
+			  {'X', print_X},
 			  {'c', print_c},
 			  {'s', print_s},
 			  {'i', print_i},

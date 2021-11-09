@@ -10,7 +10,10 @@ int _printf(const char *format, ...)
 {
   va_list lista;
   int i, count = 0, size = 0;
-  char *buffer;
+  char *buffer = NULL;
+
+  if (format == NULL || (format[0] == PERCENT && format[1] == '\0'))
+      return (-1);
 
   buffer = malloc(BUFFER_SIZE);
 
@@ -18,12 +21,6 @@ int _printf(const char *format, ...)
     return (-1);
 
   va_start(lista, format);
-
-  if (format == NULL || (format[0] == PERCENT && format[1] == '\0'))
-    {
-      free(buffer);
-      return (-1);
-    }
 
   for (i = 0; format != NULL && format[i] != '\0'; i++)
     {

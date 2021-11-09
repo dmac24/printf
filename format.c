@@ -1,5 +1,6 @@
 #include "main.h"
-
+/* You can adding in below the types that we having of each handler in current _printf  */
+#define TYPES "dcisbRrxX"
 /**
  * format_is_correct  - this function validate if format is correct
  * @format: char %
@@ -11,10 +12,7 @@ int format_is_correct(char format, char type)
   if (format != '%')
     return (0);
 
-  if (type == 'd' || type == 'c' || type == 'i' || type == 's' ||
-      type == 'b' || type == 'R' || type == 'r')
-    return (1);
-  return (0);
+  return (format_is_correct_spaces(type));
 }
 
 /**
@@ -24,8 +22,11 @@ int format_is_correct(char format, char type)
  */
 int format_is_correct_spaces(char type)
 {
-  if (type == 'd' || type == 'c' || type == 'i' || type == 's' ||
-      type == 'b' || type == 'R' || type == 'r')
-    return (1);
-  return (0);
+  int i = 0;
+  for (; TYPES[i] != '\0'; i++)
+  {
+    if (type == TYPES[i])
+      break;
+  }
+  return (TYPES[i] != '\0');
 }
