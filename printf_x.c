@@ -2,13 +2,22 @@
 #define HEX_SYMBOLS ("0123456789abcdef")
 #define HEX_BASE (16)
 
-char hex_symbol(int upper,  int index) {	
+/**
+ * hex_symbol - get symbol that representet the number spesific in hexa
+ * @upper: 1 if number is in uppercase else if bumber is 0 lowercase
+ * @index: number to parse hex
+ * Return: lengh of expansion
+ */
+
+char hex_symbol(int upper, int index)
+{
 	int current_simbol = HEX_SYMBOLS[index];
+
 	if (upper && index > 9)
 		current_simbol -= 32;
-	return current_simbol;
+	return (current_simbol);
 }
-	
+
 /**
  * print_x - Print a number to hex
  * @a: variadic argumants
@@ -58,7 +67,8 @@ int print_X(va_list a, char *buffer, int *buffer_size)
  * @buffer_size: actual items in the buffer
  * Return: lengh of expansion
  */
-int int2binary(unsigned int number, int toUpper, char *buffer, int *buffer_size)
+int int2binary(
+	unsigned int number, int toUpper, char *buffer, int *buffer_size)
 {
 	int nextNumber = number / HEX_BASE;
 	int hexNumber = 0;
