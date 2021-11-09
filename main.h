@@ -26,7 +26,7 @@ int print_c(va_list, char *buffer, int *buffer_size);
 int print_i(va_list, char *buffer, int *buffer_size);
 int print_X(va_list a, char *buffer, int *buffer_size);
 
-int int2binary(int number, int toUpper, char *buffer, int *buffer_size);
+int int2binary(unsigned int number, int toUpper, char *buffer, int *buffer_size);
 int print_x(va_list a, char *buffer, int *buffer_size);
 int print_d(va_list, char *buffer, int *buffer_size);
 int print_s(va_list, char *buffer, int *buffer_size);
