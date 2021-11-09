@@ -22,7 +22,6 @@ int format_is_correct(char format, char type)
  */
 int format_is_correct_spaces(char type)
 {
-
 	int i;
 
 	for (i = 0; TYPES[i] != '\0'; i++)
