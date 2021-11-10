@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * rot13 - print binary
+ * rot13 - print root13
  *
  * @lista: va_list
  * @buffer: buffer to acummulate output
@@ -47,7 +47,7 @@ int rot13(va_list lista, char *buffer, int *buffer_size)
 }
 
 /**
- * rev_string - print binary
+ * rev_string - print string in revers
  *
  * @lista: va_list
  * @buffer: buffer to acummulate output
